@@ -29,36 +29,25 @@ public class ProductEntity {
 
 	private int price;
 	
+	private int lastPrice;
+	
 	private String mainImage;
 	
-	public String getMainImage() {
-		return mainImage;
-	}
-
-	public void setMainImage(String mainImage) {
-		this.mainImage = mainImage;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	@Column(columnDefinition = "TEXT")
 	private String description;
-	
-	private int user_id;
 	
 	@CreationTimestamp
 	private Date create_at;
 
-	public ProductEntity(int id, String name, String type, int price, String description, int user_id, Date create_at) {
+	public ProductEntity(int id, String name, String type, int price,int lastPrice, String mainImage, String description, Date create_at) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.type = type;
 		this.price = price;
+		this.lastPrice = lastPrice;
+		this.mainImage = mainImage;
 		this.description = description;
-		this.user_id = user_id;
 		this.create_at = create_at;
 	}
 	
@@ -66,16 +55,15 @@ public class ProductEntity {
 		super();
 	}
 
-	public ProductEntity(String name, String type, int price, String description, int user_id) {
+	public ProductEntity(String name, String type, int price, int lastPrice ,String mainImage, String description) {
 		super();
 		this.name = name;
 		this.type = type;
 		this.price = price;
+		this.lastPrice = lastPrice;
+		this.mainImage = mainImage;
 		this.description = description;
-		this.user_id = user_id;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -97,7 +85,7 @@ public class ProductEntity {
 		return type;
 	}
 
-	public void setType_id(String type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
@@ -109,20 +97,20 @@ public class ProductEntity {
 		this.price = price;
 	}
 
+	public String getMainImage() {
+		return mainImage;
+	}
+
+	public void setMainImage(String mainImage) {
+		this.mainImage = mainImage;
+	}
+
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public int getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
 	}
 
 	public Date getCreate_at() {
@@ -132,6 +120,14 @@ public class ProductEntity {
 	public void setCreate_at(Date create_at) {
 		this.create_at = create_at;
 	}
-	
+
+	public int getLastPrice() {
+		return lastPrice;
+	}
+
+	public void setLastPrice(int lastPrice) {
+		this.lastPrice = lastPrice;
+	}
+
 	
 }

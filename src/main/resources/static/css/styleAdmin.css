@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+
+html { 
+    background-color: lightgray; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+  }
+
+#root {
+	margin: 20px 30px 30px;
+	position: absolute;
+}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Cart Page</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link th:href="@{css/styles.css}" rel="stylesheet" />
+<link th:href="@{css/styleIndex.css}" rel="stylesheet" />
+</head>
+<body>
+	
+		<!-- Navigation-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow rounded mb-4">
+		<div class="container px-4 px-lg-5">
+			<a class="navbar-brand" href="/home"><img alt="logo"
+				th:src="@{http://localhost:8088/img/logo.png}" ></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse menu"
+				id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle text-uppercase fw-bolder"
+						id="navbarDropdown" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Áo</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="/shop?type=Áo%20thun">Áo thun</a></li>
+							<li><a class="dropdown-item" href="/shop?type=Áo%20sơ%20mi">Áo sơ mi</a></li>
+							<li><a class="dropdown-item" href="/shop?type=Áo%20len">Áo len</a></li>
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle text-uppercase fw-bolder"
+						id="navbarDropdown" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Áo khoác</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="/shop?type=Áo%20blazer">Áo blazer</a></li>
+							<li><a class="dropdown-item" href="/shop?type=Áo%20dạ">Áo dạ</a></li>
+							<li><a class="dropdown-item" href="/shop?type=Áo%20Vest">Áo Vest</a></li>
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle text-uppercase fw-bolder"
+						id="navbarDropdown" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Quần</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="/shop?type=Quần%20Jean">Quần Jean</a></li>
+							<li><a class="dropdown-item" href="/shop?type=Quần%20dài">Quần dài</a></li>
+							<li><a class="dropdown-item" href="/shop?type=Quần%20lửng">Quần lửng</a></li>
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle text-uppercase fw-bolder"
+						id="navbarDropdown" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Đầm</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="/shop?type=Đầm%20thun">Đầm thun</a></li>
+							<li><a class="dropdown-item" href="/shop?type=Đầm%20Maxi">Đầm Maxi</a></li>
+							<li><a class="dropdown-item" href="/shop?type=Đầm%20dạ%20hội">Đầm dạ hội</a></li>
+						</ul></li>
+					<li class="nav-item text-uppercase fw-bolder"><a
+						class="nav-link" href="/style">Phong Cách Sống</a></li>
+				</ul>
+				<form class="d-flex">
+					<input type="text" placeholder="TÌM KIẾM SẢN PHẨM" class="px-2">
+					<a href="/login" class="btn btn-outline-dark text-uppercase" type="button">
+						Đăng nhập</a>
+					<button class="btn btn-outline-dark text-uppercase" type="submit">
+						<i class="bi-cart-fill me-1"></i> Giỏ Hàng <span
+							class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+					</button>
+				</form>
+
+			</div>
+		</div>
+	</nav>
+
+	<!-- Section-->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-8 border-end">
+					<h3 class="text-center fs-3 fw-bolder">Giỏ hàng của bạn</h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Hình ảnh</th>
+								<th scope="col">Tên sản phẩm</th>
+								<th scope="col">Size</th>
+								<th scope="col">Giá tiền</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">1</th>
+								<td>Mark</td>
+								<td>Otto</td>
+								<td>@mdo</td>
+							</tr>
+							<tr>
+								<th scope="row">2</th>
+								<td>Jacob</td>
+								<td>Thornton</td>
+								<td>@fat</td>
+							</tr>
+							<tr>
+								<th scope="row">3</th>
+								<td colspan="2">Larry the Bird</td>
+								<td>@twitter</td>
+							</tr>
+						</tbody>
+					</table>
+					<div>
+						<a href="javascript: window.history.back();"
+							class="btn btn-lg btn-outline-dark mb-3">  Tiếp tục mua hàng
+						</a>
+					</div>
+				</div>
+				<div class="col-4">
+					<h3 class="text-center fs-3 fw-bolder mb-3 pb-1">Tổng tiền giỏ hàng</h3>
+					<div class="row mb-3">
+						<h5 class="col-6 text-start">Tổng sản phẩm</h5>
+						<h5 class="col-6 text-end">3</h5>
+					</div>
+					<div class="row mb-3">
+						<h5 class="col-6 text-start">Tổng tiền</h5>
+						<h5 class="col-6 text-end">3</h5>
+					</div>
+					<div class="text-center">
+						<h3 class="text-center fs-3 fw-bolder mb-3 pb-1">Thông tin đặt hàng</h3>
+						<form action="" class="justify-content-center">
+							<div class="mb-4">
+								<input name="email" id="email" placeholder="Email" type="text"
+									class="form-control input-lg fs-4" required>
+							</div>
+							<div class="mb-3">
+								<input name="name" id="name" placeholder="Tên khách hàng"
+									type="text" class="form-control input-lg fs-4" required>
+							</div>
+							<div class="mb-3">
+								<input name="phone" id="phone" placeholder="Số điện thoại"
+									type="number" class="form-control input-lg fs-4" required>
+							</div>
+							<div class="mb-3">
+								<input name="address" id="address" placeholder="Địa chỉ"
+									type="text" class="form-control input-lg fs-4" required>
+							</div>
+						</form>
+						<div>
+							<a href="/register" class="btn btn-dark text-uppercase btn-lg"
+								type="button"> Đặt hàng</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Footer -->
+	<footer
+		class="text-center text-lg-start bg-white text-muted border-top">
+
+		<!-- Section: Links  -->
+		<section class="">
+			<div class="container text-center text-md-start mt-5">
+				<!-- Grid row -->
+				<div class="row mt-3">
+					<!-- Grid column -->
+					<div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+						<!-- Content -->
+						<h6 class="text-uppercase fw-bold mb-4">
+							<i class="fas fa-gem me-3 text-secondary"></i>Công ty Cổ phần ABC
+							với số đăng ký kinh doanh: 999999999
+						</h6>
+						<p>
+							<strong>Địa chỉ đăng ký: </strong>Tổ dân phố Tháp, P.Đại Mỗ,
+							Q.Nam Từ Liêm, TP.Hà Nội, Việt Nam
+						</p>
+						<ul class="list-group list-group-horizontal">
+							<li class="list-group-item"><a
+								href="https://www.facebook.com/thoitrangivymoda/"
+								target="_blank"> <img
+									src="https://pubcdn.ivymoda.com/ivy2/images/ic_fb.svg"
+									alt="ic_fb">
+							</a></li>
+							<li class="list-group-item"><a href="https://ivymoda.com/"
+								target="_blank"> <img
+									src="https://pubcdn.ivymoda.com/ivy2/images/ic_gg.svg"
+									alt="ic_gg">
+							</a></li>
+							<li class="list-group-item"><a
+								href="https://www.instagram.com/ivy_moda/" target="_blank">
+									<img
+									src="https://pubcdn.ivymoda.com/ivy2/images/ic_instagram.svg"
+									alt="ic_instagram" style="height: 30px;">
+							</a></li>
+							<li class="list-group-item"><a
+								href="https://www.pinterest.com/ivymoda/_saved/" target="_blank">
+									<img
+									src="https://pubcdn.ivymoda.com/ivy2/images/ic_pinterest.svg"
+									alt="ic_pinterest" style="height: 27px">
+							</a></li>
+							<li class="list-group-item"><a
+								href="https://www.youtube.com/user/thoitrangivymoda"
+								target="_blank"> <img
+									src="https://pubcdn.ivymoda.com/ivy2/images/ic_ytb.svg"
+									alt="ic_ytb">
+							</a></li>
+						</ul>
+						<div class="py-3 fs-5 fw-bolder text-center">
+							<a href="tel:02466623434">Hotline: 0246 662 8888</a>
+						</div>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+						<!-- Links -->
+						<h6 class="text-uppercase fw-bold mb-4">Giới thiệu</h6>
+						<p>
+							<a href="#!" class="text-reset">Về chúng tôi</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Tuyển dụng</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Hệ thống cửa hàng</a>
+						</p>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+						<!-- Links -->
+						<h6 class="text-uppercase fw-bold mb-4">Dịch vụ khách hàng</h6>
+						<p>
+							<a href="#!" class="text-reset">Chính sách điều khoản</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Hướng dẫn mua hàng</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Chính sách thanh toán</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Chính sách đổi trả</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Chính sách bảo hành</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Chính sách vận chuyển</a>
+						</p>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-md-0 mb-4">
+						<!-- Links -->
+						<h6 class="text-uppercase fw-bold mb-4">Liên hệ</h6>
+						<p>
+							<a href="#!" class="text-reset">Hotline</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Email</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Live chat</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Messenger</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Liên hệ</a>
+						</p>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-md-0 mb-4">
+						<!-- Links -->
+						<p class="text-uppercase fw-bold mb-4">Download App</p>
+						<ul class="list-group">
+							<li class="list-group-item"><a id="app_ios"
+								href="http://ios.ivy.vn" class="link-white" target="_blank"
+								title="Tải App IVYmoda trên App Store"> <img
+									src="https://pubcdn.ivymoda.com/ivy2/images/appstore.png"
+									class="img-fluid" alt="">
+							</a></li>
+							<li class="list-group-item"><a id="app_android"
+								href="http://android.ivy.vn" class="link-white" target="_blank"
+								title="Tải App IVYmoda trên Google Play"> <img
+									src="https://pubcdn.ivymoda.com/ivy2/images/googleplay.png"
+									class="img-fluid" alt="">
+							</a></li>
+						</ul>
+					</div>
+					<!-- Grid column -->
+				</div>
+				<!-- Grid row -->
+			</div>
+		</section>
+		<!-- Section: Links  -->
+
+		<!-- Copyright -->
+		<div class="text-center p-4"
+			style="background-color: rgba(0, 0, 0, 0.025);">© 2022 IVYmoda
+			All rights reserved</div>
+		<!-- Copyright -->
+	</footer>
+	<!-- Footer -->
+	<!-- Bootstrap core JS-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Core theme JS-->
+	<script th:src="@{js/scripts.js}"></script>
+</body>
+</html>
