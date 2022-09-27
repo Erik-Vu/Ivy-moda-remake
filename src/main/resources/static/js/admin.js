@@ -54,7 +54,6 @@ function sendProduct(){
    
  
 function editProduct(){
-	console.log("hello");
     var form_data = new FormData();
     form_data.append("id",$('#id').val());	
     form_data.append("mainImage", document.getElementById('mainImage').files[0]);

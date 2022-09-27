@@ -57,7 +57,7 @@
 						<input class="form-control me-3" type="text" placeholder="Search"
 							id="keyword" name="keyword">
 						<button class="btn btn-warning" type="button"
-							onclick="searchProduct()">Search</button>
+							onclick="searchUser()">Search</button>
 						<button type="button" class="btn btn-success" onclick="reset()">
 							Reset</button>					
 					</div>
@@ -73,7 +73,7 @@
 						<th>State</th>
 						<th>Role</th>
 						<th>Enabled</th>
-						<th>Day</th>
+						<th>Date</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -88,9 +88,9 @@
 						<td th:utext="${account.enabled}"></td>
 						<td th:utext="${account.createAt}"></td>
 						<td>
-							<button class="btn btn-primary">Edit</button>
-							<button class="btn btn-warning">Reset</button>
-							<button class="btn btn-danger">Delete</button>
+							<a class="btn btn-primary" th:href="@{'/admin/edituser?id=' + ${account.id}}">Edit</a>
+							<button class="btn btn-warning" th:attr="onclick=|resetUser(${account.id})|">Reset</button>
+							<button class="btn btn-danger" th:if="${account.role} == 'USER'" th:attr="onclick=|deleteUser(${account.id})|">Delete</button>
 						</td>
 					</tr>
 				</tbody>
@@ -111,7 +111,7 @@
 	function nextPage() {
 		page++;
 		$.ajax({
-			url : "/admin/page",
+			url : "/admin/pageaccount",
 			type : "post",
 			dataType : "text",
 			data : {
@@ -126,7 +126,7 @@
 	function prePage() {
 		page--;
 		$.ajax({
-			url : "/admin/page",
+			url : "/admin/pageaccount",
 			type : "post",
 			dataType : "text",
 			data : {

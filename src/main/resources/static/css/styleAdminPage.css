@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 
 html { 
-    background-color: lightgray; 
+    background: url(https://cdn.magdeleine.co/wp-content/uploads/2022/06/43009789435_a3ab0153d6_o.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -10,10 +10,6 @@ html {
   }
 
 #root {
-	margin: 20px 30px 30px;
+	margin: 20px 20px 20px;
 	position: absolute;
-}
-
-#images img {
-	width: 300px;
 }

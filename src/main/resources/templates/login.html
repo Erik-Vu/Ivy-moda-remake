@@ -18,6 +18,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
 	rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Core theme CSS (includes Bootstrap)-->
 <link th:href="@{css/styles.css}" rel="stylesheet" />
 <link th:href="@{css/styleIndex.css}" rel="stylesheet" />
@@ -117,8 +118,8 @@
 								id="flexCheckDefault"> <label
 								class="form-check-label fs-5" for="flexCheckDefault">
 								Ghi nhớ đăng nhập</label> 
-								<a href="#" class="ms-5 ps-2 fs-5 text-dark">Quên
-								mật khẩu</a>
+								<a data-bs-toggle="modal" data-bs-target="#emailModal" 
+								class="ms-5 ps-2 fs-5 text-dark">Quên mật khẩu</a>
 						</div>
 						<div class="mb-3">
 							<input class="btn btn-dark text-uppercase btn-lg"
@@ -143,6 +144,36 @@
 				</div>
 			</div>
 		</section>
+		
+	<!-- view Email -->
+	<div class="modal fadein" id="emailModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Lấy lại mật khẩu</h4>
+					<button type="button" class="close" data-bs-dismiss="modal"
+						aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<h4 class="modal-title">Vui lòng nhập email để nhận lại mật khẩu</h4>
+					<form>
+						<div class="form-group">
+							<label>Email</label> 
+							<input name="remail" id="remail" type="text" class="form-control" required>
+						</div>
+						<div id="message" style="color:red"></div>
+						<input onclick="sendEmail()" class="btn btn-dark" value="Gửi">
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-dark"
+						data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		
 	<!-- Footer -->
 	<footer class="text-center text-lg-start bg-white text-muted border-top">
 		
@@ -284,6 +315,6 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script th:src="@{js/scripts.js}"></script>
+	<script type="text/javascript" th:src="@{http://localhost:8088/js/user.js}"></script>
 </body>
 </html>

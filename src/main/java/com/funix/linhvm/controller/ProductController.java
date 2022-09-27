@@ -54,7 +54,7 @@ public class ProductController {
 		return new ModelAndView("product",model);
 	}
 	
-	@PostMapping("/page")
+	@PostMapping("/pageproduct")
 	public ModelAndView getPage(int page) {
 		Map<String, Object> model = new HashMap<>();
 		Page<ProductEntity> listP = productService.getNextProduct(page);
@@ -183,7 +183,6 @@ public class ProductController {
 	
 	@PostMapping("/searchproduct")
 	public ModelAndView searchProduct(String keyword) {
-		System.out.println(keyword);
 		Map<String, Object> model = new HashMap<>();
 		List<ProductEntity> listP = productService.searchProduct(keyword);
 		List<TypeEntity> listT = productService.getAllType();

@@ -73,6 +73,10 @@ public class Account {
 		if (role) this.role = "ADMIN";
 		else this.role = "USER";
 	}
+	
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 	public String getEnabled() {
 		return enabled;
@@ -81,6 +85,10 @@ public class Account {
 	public void setEnabled(Boolean enabled) {
 		if (enabled) this.enabled = "ACTIVE";
 		else this.enabled = "DISABLED";
+	}
+	
+	public void setEnabled(String enabled) {
+		 this.enabled = enabled;
 	}
 
 	public String getState() {

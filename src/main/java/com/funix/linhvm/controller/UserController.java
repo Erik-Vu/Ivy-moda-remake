@@ -23,13 +23,19 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-	
+		
 	@Autowired
 	SendEmail sendEmail;
 	
 	@GetMapping("/login")
 	public ModelAndView getLogin() {
 		return new ModelAndView("login");
+	}
+	
+	@PostMapping("/beforelogout")
+	public String getLogOut(int id) {
+		userService.logOutUser(id);
+		return "1";
 	}
 	
 	@GetMapping("/register")
@@ -64,8 +70,10 @@ public class UserController {
 	public ModelAndView getAccount(Principal principal, HttpServletRequest request) {
 		Map<String, Object> model = new HashMap<>();
 		List<UserEntity> users = userService.findUserByEmail(principal.getName());
-		User user = new User(users.get(0).getFullName(), users.get(0).getEmail(), users.get(0).getPhone());
-		request.getSession().setAttribute("user", user);
+		request.getSession().setAttribute("id", users.get(0).getId());
+		request.getSession().setAttribute("name", users.get(0).getFullName());
+		request.getSession().setAttribute("email", users.get(0).getEmail());
+		request.getSession().setAttribute("phone", users.get(0).getPhone());
 		model.put("name", "Xin Chào, " + users.get(0).getFullName());
 		if (users.get(0).isRole()) return new ModelAndView("admin",model);
 		 return new ModelAndView("user",model);
@@ -82,5 +90,21 @@ public class UserController {
         }
         return new ModelAndView("403", model);
 	 }
-
+	
+	@PostMapping("/sendemail")
+	public String sendEmail(String email) {	
+		return userService.getUserByEmail(email);
+	}
+	
+	@PostMapping("/sendpassword")
+	public String sendPassword(HttpServletRequest request, String password, String pass) {
+		int id = (Integer) request.getSession().getAttribute("id");
+		return userService.changePassword(id, password, pass);
+	}
+	
+	@PostMapping("/sendtoken")
+	public String sendToken(HttpServletRequest request) {	
+		int id = (Integer) request.getSession().getAttribute("id");		
+		return userService.sendToken(id);
+	}
 }
